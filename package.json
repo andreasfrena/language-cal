@@ -1,0 +1,16 @@
+{
+  "name": "language-cal",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Add syntax highlighting to c al files in Atom",
+	"author": "SpinningMoebius <andreas_frena@hotmail.de>",
+  "engines": {
+    "atom": "*"
+  },
+	"dependencies": {},
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/andreasfrena/language-cal.git"
+	},
+  "license": ""
+}

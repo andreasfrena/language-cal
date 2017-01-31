@@ -1,0 +1,98 @@
+scopeName: 'source.cal'
+name: 'C/AL'
+fileTypes: ['cal']
+
+patterns: [
+	{ include: '#numbers' }
+	{ include: '#keywords' }
+	{ include: '#functions' }
+	{ include: '#comments' }
+	{ include: '#strings' }
+	{ include: '#variables' }
+	{ include: '#constants' }
+]
+
+repository:
+	numbers:
+		patterns: [
+			{
+				match: '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b'
+				name: 'constant.numeric.cal'
+			}
+		]
+	comments:
+		patterns: [
+			{
+				comment: 'Line comments'
+				begin: '//'
+				end: '\\n'
+				name: 'comment.line.double-slash.cal'
+			}
+			{
+				comment: 'Block comments'
+				begin: '{'
+				beginCaptures:
+					'0':
+						name: 'punctuation.definition.comment.begin.cal'
+				end: '}'
+				endCaptures:
+					'0':
+						name: 'punctuation.definition.comment.end.cal'
+				name: 'comment.block.cal'
+			}
+		]
+
+	keywords:
+		patterns: [
+			{
+				match: '\\b(IF|NOT|THEN|BEGIN|END|ELSE|REPEAT|UNTIL|CASE|OF|WITH|WHILE|DO)\\b'
+				name: 'keyword.control.cal'
+			}
+		]
+
+	constants:
+		patterns: [
+			{
+				match: '\\b(TODAY|WORKDATE|CURRENTDATETIME|TRUE|FALSE)\\b'
+				name: 'constant.language.cal'
+			}
+			{
+				match: 'Text[0-9]+'
+				name: 'constant.other.cal'
+			}
+		]
+
+	functions:
+		patterns: [
+			{
+				match: '\\b(PROCEDURE)\\s\\w+@[0-9]+\\(\\)(\\s:\\s.*)?;'
+				captures:
+					'1':
+						name: 'keyword.control.cal'
+					'2':
+						name: 'entity.name.function.cal'
+				name: 'meta.function.cal'
+			}
+			{
+				match: '(EXIT|SETRANGE|SETCURRENTKEY|ERROR|TABLECAPTION|FIELDCAPTION|FINDFIRST|FINDLAST|FIND|EVALUATE|INIT|INSERT|MODIFY|DELETE(ALL)?|STRPOS)'
+				name: 'support.function.cal'
+			}
+		]
+
+	strings:
+		patterns: [
+			{
+				begin: '\''
+				end: '\''
+				name: 'string.quoted.single.cal'
+			}
+		]
+
+	variables:
+		patterns: [
+			{
+				begin: '"'
+				end: '"'
+				name: 'variable.other.cal'
+			}
+		]
