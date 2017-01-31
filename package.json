@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Add syntax highlighting to c al files in Atom",
-	"author": "SpinningMoebius <andreas_frena@hotmail.de>",
+	"author": "andreasfrena <andreas_frena@hotmail.de>",
   "engines": {
     "atom": "*"
   },
